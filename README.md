@@ -14,3 +14,14 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our 
 [online documentation](https://flutter.dev/docs), which offers tutorials, 
 samples, guidance on mobile development, and a full API reference.
+
+
+## Features of the app.
+Vader Theme: Enables you to quicky customize different flutter widgets as you wish to match your design and then genarates the code as you wish.
+
+How to Kirk: Shows you different resources like articles, tutorial videos, documentation and community content as well as letting yolu ask questions you have to different people around the world. you can use to learn more about flutter.
+
+
+## Ux design
+
+<img src="https://user-images.githubusercontent.com/30645560/58753790-3ae5c200-848a-11e9-9e15-58902a3985c0.png"/>
