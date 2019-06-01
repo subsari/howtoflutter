@@ -4,7 +4,7 @@ Explore, learn and connect with Flutter community!
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project is a starting point for a Flutter application and it will provide resources for people interested in learning flutter
 
 A few resources to get you started if this is your first Flutter project:
 
