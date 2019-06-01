@@ -69,7 +69,24 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      drawer: Drawer(),
+      drawer: Drawer(
+        child: ListView(
+          children: <Widget>[
+            ListTile(
+              title: Text("Articles"),
+              trailing: Icon(Icons.arrow_forward),
+            ),
+            ListTile(
+              title: Text("Videos"),
+              trailing: Icon(Icons.arrow_forward),
+            ),
+            ListTile(
+              title: Text("About"),
+              trailing: Icon(Icons.arrow_forward),
+            ),
+          ],
+        ),
+      ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
