@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:howtoflutter/about.dart';
 import 'package:howtoflutter/firestore.dart';
 
 import 'resources.dart';
@@ -85,6 +86,10 @@ class _MyHomePageState extends State<MyHomePage> {
             ListTile(
               leading: Icon(Icons.info),
               title: Text("About"),
+              onTap: (){
+                Navigator.of(context).pop();
+                Navigator.push(context, MaterialPageRoute(builder: (context) => AboutRoute()));
+              }
             ),
           ],
         ),
