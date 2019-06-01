@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:howtoflutter/firestore.dart';
 
 void main() => runApp(MyApp());
 
@@ -44,6 +47,137 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+        actions: <Widget>[
+          Row(
+            children: <Widget>[FlutterLogo(), Text('Flutter')],
+          ),
+        ],
+      ),
+      drawer: Drawer(
+        child: ListView(
+          children: <Widget>[
+            ListTile(
+              leading: Icon(Icons.list),
+              title: Text("Articles"),
+              trailing: Icon(Icons.arrow_forward),
+              onTap: (){
+                Navigator.of(context).pop();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ArticlesRoute()),
+                );
+              }
+            ),
+            ListTile(
+              leading: Icon(Icons.videocam),
+              title: Text("Videos"),
+              trailing: Icon(Icons.arrow_forward),
+            ),
+            ListTile(
+              leading: Icon(Icons.account_circle),
+              title: Text("Example - FireStore"),
+              onTap: (){
+                Navigator.of(context).pop();
+                Navigator.push(context, MaterialPageRoute(builder: (context) => ExampleFireStore()));
+              }
+            ),
+            ListTile(
+              leading: Icon(Icons.info),
+              title: Text("About"),
+            ),
+          ],
+        ),
+      ),
+      body: Center(
+        // Center is a layout widget. It takes a single child and positions it
+        // in the middle of the parent.
+        child: Column(
+          // Column is also layout widget. It takes a list of children and
+          // arranges them vertically. By default, it sizes itself to fit its
+          // children horizontally, and tries to be as tall as its parent.
+          //
+          // Invoke "debug painting" (press "p" in the console, choose the
+          // "Toggle Debug Paint" action from the Flutter Inspector in Android
+          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
+          // to see the wireframe for each widget.
+          //
+          // Column has various properties to control how it sizes itself and
+          // how it positions its children. Here we use mainAxisAlignment to
+          // center the children vertically; the main axis here is the vertical
+          // axis because Columns are vertical (the cross axis would be
+          // horizontal).
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Card(
+              child: Container(
+                child: InkWell(child: Padding(padding: EdgeInsets.all(20), child: Column(
+                  children: <Widget>[
+                    Text('Vader Theme', style: TextStyle(fontSize: 40, color: Colors.white),),
+                    Text(
+                        'Quickly customize your flutter widget to match your design vision',
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    ),
+                  ],
+                ),),
+                onTap: (){
+                  // go to vader
+                  print('vader');
+                },),
+                decoration: BoxDecoration(
+                  color: const Color(0xff7c94b6),
+                  image: DecorationImage(
+                    image: ExactAssetImage('assets/images/vaderrrr.png', scale: 0.02),
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+} // _MyHomePageState
+
+// TODO - Move to separate file
+class ArticlesRoute extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Articles"),
+      ),
+      body: Center(
+        child: null,
+      ),
+    );
+  }
+}
+
+// TODO - Move to separate file
+class CounterRoute extends StatefulWidget {
+  CounterRoute({Key key, this.title}) : super(key: key);
+
+  // This widget is the home page of your application. It is stateful, meaning
+  // that it has a State object (defined below) that contains fields that affect
+  // how it looks.
+
+  // This class is the configuration for the state. It holds the values (in this
+  // case the title) provided by the parent (in this case the App widget) and
+  // used by the build method of the State. Fields in a Widget subclass are
+  // always marked "final".
+
+  final String title;
+
+  @override
+  _CounterRouteState createState() => _CounterRouteState();
+}
+
+class _CounterRouteState extends State<CounterRoute> {
   int _counter = 0;
 
   void _incrementCounter() {
@@ -68,33 +202,11 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
-      ),
-      drawer: Drawer(
-        child: ListView(
-          children: <Widget>[
-            ListTile(
-              leading: Icon(Icons.list),
-              title: Text("Articles"),
-              trailing: Icon(Icons.arrow_forward),
-              onTap: (){
-                Navigator.of(context).pop();
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => ArticlesRoute()),
-                );
-              }
-            ),
-            ListTile(
-              leading: Icon(Icons.videocam),
-              title: Text("Videos"),
-              trailing: Icon(Icons.arrow_forward),
-            ),
-            ListTile(
-              leading: Icon(Icons.info),
-              title: Text("About"),
-            ),
-          ],
-        ),
+        actions: <Widget>[
+          Row(
+            children: <Widget>[FlutterLogo(), Text('Flutter')],
+          ),
+        ],
       ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
@@ -130,22 +242,7 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ), 
     );
   }
-}
-
-// TODO - Move to separate file
-class ArticlesRoute extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Articles"),
-      ),
-      body: Center(
-        child: null,
-      ),
-    );
-  }
-}
+} // _CounterRouteState
