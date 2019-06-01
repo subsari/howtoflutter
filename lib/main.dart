@@ -3,10 +3,20 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:howtoflutter/about.dart';
 import 'package:howtoflutter/firestore.dart';
+import 'package:url_launcher/url_launcher.dart'; 
 
 import 'resources.dart';
 
 void main() => runApp(MyApp());
+
+_launchHowToFlutterMagic() async {
+  const url = 'https://github.com/kuafucode/vader/';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -50,6 +60,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -127,7 +138,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),),
                 onTap: (){
                   // go to vader
-                  print('vader');
+                  _launchHowToFlutterMagic();
                 },),
                 decoration: BoxDecoration(
                   color: const Color(0xff7c94b6),
