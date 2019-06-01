@@ -3,10 +3,19 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:howtoflutter/about.dart';
 import 'package:howtoflutter/firestore.dart';
+import 'package:url_launcher/url_launcher.dart'; 
 
 import 'resources.dart';
 
 void main() => runApp(MyApp());
+
+_launchUrlInBrowser(String url) async {
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -50,6 +59,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -126,14 +136,33 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 ),),
                 onTap: (){
-                  // go to vader
-                  print('vader');
+                  _launchUrlInBrowser("https://github.com/kuafucode/vader/");
                 },),
                 decoration: BoxDecoration(
                   color: const Color(0xff7c94b6),
                   image: DecorationImage(
                     image: ExactAssetImage('assets/images/vaderrrr.png', scale: 0.02),
                   ),
+                ),
+              ),
+            ),
+            Card(
+              child: Container(
+                child: InkWell(child: Padding(padding: EdgeInsets.all(20), child: Column(
+                  children: <Widget>[
+                    Text('Resources', style: TextStyle(fontSize: 40, color: Colors.white),),
+                    Text(
+                        'All the resources you need to be a successful Flutter developer!',
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    ),
+                  ],
+                ),),
+                onTap: (){
+                  _launchUrlInBrowser("https://github.com/subsari/howtoflutter/");
+                },),
+                decoration: BoxDecoration(
+                  color: const Color(0xff7c94a6),
+                  
                 ),
               ),
             )
