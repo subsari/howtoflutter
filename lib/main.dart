@@ -18,6 +18,15 @@ _launchHowToFlutterMagic() async {
   }
 }
 
+_launchHowToFlutterResources() async {
+  const url = 'https://github.com/subsari/howtoflutter/';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
@@ -145,6 +154,27 @@ class _MyHomePageState extends State<MyHomePage> {
                   image: DecorationImage(
                     image: ExactAssetImage('assets/images/vaderrrr.png', scale: 0.02),
                   ),
+                ),
+              ),
+            ),
+            Card(
+              child: Container(
+                child: InkWell(child: Padding(padding: EdgeInsets.all(20), child: Column(
+                  children: <Widget>[
+                    Text('Resources', style: TextStyle(fontSize: 40, color: Colors.white),),
+                    Text(
+                        'All the resources you need to be a successful Flutter developer!',
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    ),
+                  ],
+                ),),
+                onTap: (){
+                  // go to vader
+                  _launchHowToFlutterResources();
+                },),
+                decoration: BoxDecoration(
+                  color: const Color(0xff7c94a6),
+                  
                 ),
               ),
             )
