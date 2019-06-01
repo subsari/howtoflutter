@@ -24,4 +24,5 @@ How to Kirk: Shows you different resources like articles, tutorial videos, docum
 
 ## Ux design
 
-<img src="https://user-images.githubusercontent.com/30645560/58753790-3ae5c200-848a-11e9-9e15-58902a3985c0.png"/>
+<img src="https://user-images.githubusercontent.com/30645560/58753790-3ae5c200-848a-11e9-9e15-58902a3985c0.png" width="350" height="450"/>
+<img src="https://user-images.githubusercontent.com/30645560/58754529-c6198480-8497-11e9-840e-deafc3f91ca2.png" width="350" height="450"/>
