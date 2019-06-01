@@ -3,6 +3,8 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:howtoflutter/firestore.dart';
 
+import 'resources.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -136,18 +138,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 } // _MyHomePageState
-
-// TODO - Move to separate file
-class ResourcesRoute extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Resources"),
-      ),
-      body: Center(
-        child: null,
-      ),
-    );
-  }
-}
