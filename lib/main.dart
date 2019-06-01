@@ -73,16 +73,20 @@ class _MyHomePageState extends State<MyHomePage> {
         child: ListView(
           children: <Widget>[
             ListTile(
+              leading: Icon(Icons.list),
               title: Text("Articles"),
+              //subtitle: Text(''),
+              //dense: true,
               trailing: Icon(Icons.arrow_forward),
             ),
             ListTile(
+              leading: Icon(Icons.videocam),
               title: Text("Videos"),
               trailing: Icon(Icons.arrow_forward),
             ),
             ListTile(
+              leading: Icon(Icons.info),
               title: Text("About"),
-              trailing: Icon(Icons.arrow_forward),
             ),
           ],
         ),
