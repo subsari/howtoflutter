@@ -75,9 +75,14 @@ class _MyHomePageState extends State<MyHomePage> {
             ListTile(
               leading: Icon(Icons.list),
               title: Text("Articles"),
-              //subtitle: Text(''),
-              //dense: true,
               trailing: Icon(Icons.arrow_forward),
+              onTap: (){
+                Navigator.of(context).pop();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ArticlesRoute()),
+                );
+              }
             ),
             ListTile(
               leading: Icon(Icons.videocam),
@@ -126,6 +131,21 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+}
+
+// TODO - Move to separate file
+class ArticlesRoute extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Articles"),
+      ),
+      body: Center(
+        child: null,
+      ),
     );
   }
 }
