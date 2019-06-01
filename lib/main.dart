@@ -9,17 +9,7 @@ import 'resources.dart';
 
 void main() => runApp(MyApp());
 
-_launchHowToFlutterMagic() async {
-  const url = 'https://github.com/kuafucode/vader/';
-  if (await canLaunch(url)) {
-    await launch(url);
-  } else {
-    throw 'Could not launch $url';
-  }
-}
-
-_launchHowToFlutterResources() async {
-  const url = 'https://github.com/subsari/howtoflutter/';
+_launchUrlInBrowser(String url) async {
   if (await canLaunch(url)) {
     await launch(url);
   } else {
@@ -146,8 +136,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 ),),
                 onTap: (){
-                  // go to vader
-                  _launchHowToFlutterMagic();
+                  _launchUrlInBrowser("https://github.com/kuafucode/vader/");
                 },),
                 decoration: BoxDecoration(
                   color: const Color(0xff7c94b6),
@@ -169,8 +158,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 ),),
                 onTap: (){
-                  // go to vader
-                  _launchHowToFlutterResources();
+                  _launchUrlInBrowser("https://github.com/subsari/howtoflutter/");
                 },),
                 decoration: BoxDecoration(
                   color: const Color(0xff7c94a6),
